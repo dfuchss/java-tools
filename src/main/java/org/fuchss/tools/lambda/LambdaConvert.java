@@ -130,7 +130,7 @@ public class LambdaConvert {
 	 *            the exception handler
 	 * @return the wrapped function
 	 */
-	public static VoidFunctionWithException wrap(VoidFunction func, Consumer<Exception> handler) {
+	public static VoidFunction wrap(VoidFunctionWithException func, Consumer<Exception> handler) {
 		return () -> {
 			try {
 				func.execute();
