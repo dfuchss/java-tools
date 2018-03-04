@@ -3,4 +3,4 @@ jdk:
   - oraclejdk8
 
 after_success:
-  - bash <(curl -s https://raw.githubusercontent.com/dfuchss/maven/releases/travis/decrypt.sh) && cd $TRAVIS_BUILD_DIR && mvn deploy
+  - bash <(curl -s https://raw.githubusercontent.com/dfuchss/maven/releases/travis/decrypt.sh) && cd $TRAVIS_BUILD_DIR && mvn deploy -Pbuild

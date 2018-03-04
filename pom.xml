@@ -9,6 +9,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<srcdir>src/main/java</srcdir>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -31,7 +32,7 @@
 		</repository>
 	</distributionManagement>
 	<build>
-		<sourceDirectory>target/generated-sources/delombok</sourceDirectory>
+		<sourceDirectory>${srcdir}</sourceDirectory>
 		<extensions>
 			<extension>
 				<groupId>ar.com.synergian</groupId>
@@ -93,4 +94,12 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>build</id>
+			<properties>
+				<srcdir>target/generated-sources/delombok</srcdir>
+			</properties>
+		</profile>
+	</profiles>
 </project>
