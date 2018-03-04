@@ -110,10 +110,10 @@ public class LambdaConvert {
 	 *            the exception handler
 	 * @return the wrapped supplier
 	 */
-	public static <O> Supplier<O> wrap(SupplierWithException<O> producer, Consumer<Exception> handler) {
+	public static <O> Supplier<O> wrap(SupplierWithException<O> supplier, Consumer<Exception> handler) {
 		return () -> {
 			try {
-				return producer.get();
+				return supplier.get();
 			} catch (Exception e) {
 				handler.accept(e);
 				return null;
