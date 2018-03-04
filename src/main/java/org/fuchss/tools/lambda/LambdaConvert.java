@@ -3,6 +3,7 @@ package org.fuchss.tools.lambda;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 import lombok.experimental.UtilityClass;
 
@@ -99,20 +100,20 @@ public class LambdaConvert {
 	}
 
 	/**
-	 * Wrap a {@link ProducerWithException} to a {@link Producer}.
+	 * Wrap a {@link SupplierWithException} to a {@link Supplier}.
 	 *
 	 * @param <O>
 	 *            the output type
-	 * @param producer
-	 *            the producer
+	 * @param supplier
+	 *            the supplier
 	 * @param handler
 	 *            the exception handler
-	 * @return the wrapped producer
+	 * @return the wrapped supplier
 	 */
-	public static <O> Producer<O> wrap(ProducerWithException<O> producer, Consumer<Exception> handler) {
+	public static <O> Supplier<O> wrap(SupplierWithException<O> producer, Consumer<Exception> handler) {
 		return () -> {
 			try {
-				return producer.produce();
+				return producer.get();
 			} catch (Exception e) {
 				handler.accept(e);
 				return null;
