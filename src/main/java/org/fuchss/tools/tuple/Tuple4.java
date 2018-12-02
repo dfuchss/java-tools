@@ -1,5 +1,7 @@
 package org.fuchss.tools.tuple;
 
+import java.io.Serializable;
+
 import lombok.Value;
 
 /**
@@ -17,7 +19,8 @@ import lombok.Value;
  *            the fourth type
  */
 @Value(staticConstructor = "of")
-public class Tuple4<A, B, C, D> {
+public class Tuple4<A, B, C, D> implements Serializable {
+	private static final long serialVersionUID = -5255702882082756985L;
 	/**
 	 * The first value.
 	 *
