@@ -5,8 +5,6 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import lombok.experimental.UtilityClass;
-
 /**
  * A converter class to convert Functions/Consumers .. with {@link Exception} to
  * "normal" Functions/Consumers/..
@@ -14,8 +12,12 @@ import lombok.experimental.UtilityClass;
  * @author Dominik Fuchss
  *
  */
-@UtilityClass
-public class LambdaConvert {
+
+public final class LambdaConvert {
+	private LambdaConvert() {
+		throw new IllegalAccessError();
+	}
+
 	/**
 	 * This handler will do nothing.
 	 */
