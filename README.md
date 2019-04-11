@@ -18,7 +18,7 @@ If you want to use maven or some similar tool add the following code to your pom
   <dependency>
     <groupId>org.fuchss</groupId>
     <artifactId>java-tools</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
   </dependency>
 </dependencies>
 ```
