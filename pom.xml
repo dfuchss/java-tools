@@ -28,7 +28,6 @@
 		</repository>
 	</distributionManagement>
 	<build>
-		<sourceDirectory>${srcdir}</sourceDirectory>
 		<extensions>
 			<extension>
 				<groupId>ar.com.synergian</groupId>
