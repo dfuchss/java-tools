@@ -10,15 +10,17 @@ If you want to use maven or some similar tool add the following code to your pom
 ```xml
 <repositories>
 	<repository>
-		<id>maven-fuchss</id>
-		<url>https://raw.githubusercontent.com/dfuchss/maven/releases</url>
+		<id>github</id>
+		<name>GitHub Maven Packages</name>
+		<url>https://maven.pkg.github.com/dfuchss/java-tools</url>
 	</repository>
 </repositories>
+
 <dependencies>
   <dependency>
     <groupId>org.fuchss</groupId>
     <artifactId>java-tools</artifactId>
-    <version>0.2</version>
+    <version>develop-SNAPSHOT</version>
   </dependency>
 </dependencies>
 ```
