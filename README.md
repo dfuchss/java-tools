@@ -1,5 +1,4 @@
 # java-tools
-[![Build Status](https://travis-ci.org/dfuchss/java-tools.svg?branch=master)](https://travis-ci.org/dfuchss/java-tools)
 [![GitHub issues](https://img.shields.io/github/issues/dfuchss/java-tools.svg?style=square)](https://github.com/dfuchss/java-tools/issues)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=square)](https://github.com/dfuchss/java-tools/blob/master/LICENSE.md)
 
