@@ -2,6 +2,7 @@
 package org.fuchss.tools.tuple;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * A simple tuple of three values
@@ -88,47 +89,23 @@ public final class Tuple3<A, B, C> implements Serializable {
 	}
 
 	@Override
-	public boolean equals(final Object o) {
-		if (o == this) {
+	public int hashCode() {
+		return Objects.hash(this.first, this.second, this.third);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
 			return true;
 		}
-		if (!(o instanceof Tuple3)) {
+		if (obj == null || this.getClass() != obj.getClass()) {
 			return false;
 		}
-		final Tuple3<?, ?, ?> other = (Tuple3<?, ?, ?>) o;
-		final Object this$first = this.getFirst();
-		final Object other$first = other.getFirst();
-		if (this$first == null ? other$first != null : !this$first.equals(other$first)) {
-			return false;
-		}
-		final Object this$second = this.getSecond();
-		final Object other$second = other.getSecond();
-		if (this$second == null ? other$second != null : !this$second.equals(other$second)) {
-			return false;
-		}
-		final Object this$third = this.getThird();
-		final Object other$third = other.getThird();
-		if (this$third == null ? other$third != null : !this$third.equals(other$third)) {
-			return false;
-		}
-		return true;
+		Tuple3<?, ?, ?> other = (Tuple3<?, ?, ?>) obj;
+		return Objects.equals(this.first, other.first) && Objects.equals(this.second, other.second) && Objects.equals(this.third, other.third);
 	}
 
 	@Override
-	public int hashCode() {
-		final int PRIME = 59;
-		int result = 1;
-		final Object $first = this.getFirst();
-		result = result * PRIME + ($first == null ? 43 : $first.hashCode());
-		final Object $second = this.getSecond();
-		result = result * PRIME + ($second == null ? 43 : $second.hashCode());
-		final Object $third = this.getThird();
-		result = result * PRIME + ($third == null ? 43 : $third.hashCode());
-		return result;
-	}
-
-	@Override
-
 	public String toString() {
 		return "Tuple3(first=" + this.getFirst() + ", second=" + this.getSecond() + ", third=" + this.getThird() + ")";
 	}

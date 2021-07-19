@@ -1,6 +1,7 @@
 package org.fuchss.tools.tuple;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * A simple tuple of two values
@@ -51,36 +52,20 @@ public final class Tuple2<A, B> implements Serializable {
 	}
 
 	@Override
-	public boolean equals(final Object o) {
-		if (o == this) {
-			return true;
-		}
-		if (!(o instanceof Tuple2)) {
-			return false;
-		}
-		final Tuple2<?, ?> other = (Tuple2<?, ?>) o;
-		final Object this$first = this.getFirst();
-		final Object other$first = other.getFirst();
-		if (this$first == null ? other$first != null : !this$first.equals(other$first)) {
-			return false;
-		}
-		final Object this$second = this.getSecond();
-		final Object other$second = other.getSecond();
-		if (this$second == null ? other$second != null : !this$second.equals(other$second)) {
-			return false;
-		}
-		return true;
+	public int hashCode() {
+		return Objects.hash(this.first, this.second);
 	}
 
 	@Override
-	public int hashCode() {
-		final int PRIME = 59;
-		int result = 1;
-		final Object $first = this.getFirst();
-		result = result * PRIME + ($first == null ? 43 : $first.hashCode());
-		final Object $second = this.getSecond();
-		result = result * PRIME + ($second == null ? 43 : $second.hashCode());
-		return result;
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null || this.getClass() != obj.getClass()) {
+			return false;
+		}
+		Tuple2<?, ?> other = (Tuple2<?, ?>) obj;
+		return Objects.equals(this.first, other.first) && Objects.equals(this.second, other.second);
 	}
 
 	@Override

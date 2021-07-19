@@ -1,6 +1,7 @@
 package org.fuchss.tools.tuple;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * A simple tuple of three values
@@ -106,55 +107,24 @@ public final class Tuple4<A, B, C, D> implements Serializable {
 	}
 
 	@Override
-	public boolean equals(final Object o) {
-		if (o == this) {
-			return true;
-		}
-		if (!(o instanceof Tuple4)) {
-			return false;
-		}
-		final Tuple4<?, ?, ?, ?> other = (Tuple4<?, ?, ?, ?>) o;
-		final Object this$first = this.getFirst();
-		final Object other$first = other.getFirst();
-		if (this$first == null ? other$first != null : !this$first.equals(other$first)) {
-			return false;
-		}
-		final Object this$second = this.getSecond();
-		final Object other$second = other.getSecond();
-		if (this$second == null ? other$second != null : !this$second.equals(other$second)) {
-			return false;
-		}
-		final Object this$third = this.getThird();
-		final Object other$third = other.getThird();
-		if (this$third == null ? other$third != null : !this$third.equals(other$third)) {
-			return false;
-		}
-		final Object this$fourth = this.getFourth();
-		final Object other$fourth = other.getFourth();
-		if (this$fourth == null ? other$fourth != null : !this$fourth.equals(other$fourth)) {
-			return false;
-		}
-		return true;
+	public int hashCode() {
+		return Objects.hash(this.first, this.fourth, this.second, this.third);
 	}
 
 	@Override
-	public int hashCode() {
-		final int PRIME = 59;
-		int result = 1;
-		final Object $first = this.getFirst();
-		result = result * PRIME + ($first == null ? 43 : $first.hashCode());
-		final Object $second = this.getSecond();
-		result = result * PRIME + ($second == null ? 43 : $second.hashCode());
-		final Object $third = this.getThird();
-		result = result * PRIME + ($third == null ? 43 : $third.hashCode());
-		final Object $fourth = this.getFourth();
-		result = result * PRIME + ($fourth == null ? 43 : $fourth.hashCode());
-		return result;
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null || this.getClass() != obj.getClass()) {
+			return false;
+		}
+		Tuple4<?, ?, ?, ?> other = (Tuple4<?, ?, ?, ?>) obj;
+		return Objects.equals(this.first, other.first) && Objects.equals(this.second, other.second) && Objects.equals(this.third, other.third) && Objects.equals(this.fourth, other.fourth);
 	}
 
 	@Override
 	public String toString() {
-		return "Tuple4(first=" + this.getFirst() + ", second=" + this.getSecond() + ", third=" + this.getThird() + ", fourth=" + this.getFourth()
-				+ ")";
+		return "Tuple4(first=" + this.getFirst() + ", second=" + this.getSecond() + ", third=" + this.getThird() + ", fourth=" + this.getFourth() + ")";
 	}
 }
