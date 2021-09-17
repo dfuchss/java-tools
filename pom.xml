@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.fuchss</groupId>
 	<artifactId>java-tools</artifactId>
-	<version>develop-SNAPSHOT</version>
+	<version>0.3</version>
 	<name>Set of tools for Java</name>
 	<prerequisites>
 		<maven>3.3.9</maven>
